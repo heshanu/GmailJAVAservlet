@@ -65,6 +65,8 @@ public class sendboxServlet extends HttpServlet {
 				s.add(sendDTO);
 				session.setAttribute("s",s);
 			}
+			
+			
 			dispatcher = request.getRequestDispatcher("send.jsp");
 
 		} catch (Exception e) {

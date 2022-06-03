@@ -52,6 +52,7 @@
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
 		<div class="container">
+		<a class="navbar-brand" href="#page-top">Email System</a>
 			<button
 				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
 				type="button" data-bs-toggle="collapse"
@@ -90,34 +91,39 @@
 			<!-- Contact Section Form-->
 			<div class="row justify-content-center">
 				<div class="col-lg-8 col-xl-7">
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- * * SB Forms Contact Form * *-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- This form is pre-integrated with SB Forms.-->
-					<!-- To make this form functional, sign up at-->
-					<!-- https://startbootstrap.com/solution/contact-forms-->
-					<!-- to get an API token!-->
 					<h1>Trash</h1>
+
 					<form method="post" action="trash">
 						<div class="form-group form-button">
-							<input type="submit" name="signin" id="signin"
-								class="form-submit" value="Log in" />
+							<input type="submit" class="form-submit" value="show Trash list" /><br>
 						</div>
 					</form>
 
 
 					<table border="1" style="width: 100%">
-						<th>
-						<td>TO</td>
-						<td></td>SUBJECT
-						<td>MESSAGE</td>
-						</th>
-
+						<tr>
+							<td>TO</td>
+							<td>SUBJECT</td>
+							<td>MESSAGE</td>
+							<td>ACTION</td>
+						</tr>
 
 						<tr>
+							<td><c:forEach items="${s1}" var="item1">
+									<li><c:out value="${item1.tot}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s1}" var="item1">
+									<li><c:out value="${item1.subject}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s1}" var="item1">
+									<li><c:out value="${item1.message}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s1}" var="item1">
+									<li><a href="delete.jsp">delete now</a></li>
+								</c:forEach></td>
+							</td>
 						</tr>
 					</table>
-
 
 
 				</div>

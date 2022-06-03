@@ -16,13 +16,12 @@ import javax.swing.JFrame;
 
 import com.dto.sendboxDTO;
 import com.service.sendService;
-import com.service.trashService;
 
-@WebServlet("/trash")
-public class TrashServlet extends HttpServlet {
+@WebServlet("/Delete")
+public class Deleteservelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public TrashServlet() {
+	public Deleteservelt() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,39 +29,36 @@ public class TrashServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		// doGet(request, response);}
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String tot1 = request.getParameter("tot");
-		String subject1 = request.getParameter("subject");
-		String message1 = request.getParameter("message");
+		String tot = request.getParameter("tot");
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
 		RequestDispatcher dispatcher = null;
-		HttpSession session1 = request.getSession();
+		ResultSet rs = null;
+		HttpSession session = request.getSession();
 		JFrame parent = new JFrame();
-		List<sendboxDTO> s1 = new ArrayList<>();
+		List<sendboxDTO> s = new ArrayList<>();
 		try {
 			// sendService.getAllBanks();
-			List<sendboxDTO> sends1 = trashService.getAllBanks();
+			List<sendboxDTO> sends = sendService.getAllBanks();
 			// System.out.println(banks.size());
 
-			for (sendboxDTO sendDTO1 : sends1) {
-				sendDTO1.getTot();
-				sendDTO1.getSubject();
-				sendDTO1.getMessage();
+			for (sendboxDTO sendDTO : sends) {
+				sendDTO.getTot();
+				sendDTO.getSubject();
+				sendDTO.getMessage();
+
 				// session.setAttribute("tot", sendDTO.getTot());
-				System.out.println(sendDTO1.getTot());
-				s1.add(sendDTO1);
-				session1.setAttribute("s1", s1);
+				System.out.println(sendDTO.getTot());
+				s.add(sendDTO);
+				session.setAttribute("s2", s);
 			}
-			dispatcher = request.getRequestDispatcher("trash.jsp");
+			dispatcher = request.getRequestDispatcher("delete.jsp");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,6 +66,5 @@ public class TrashServlet extends HttpServlet {
 
 		}
 		dispatcher.forward(request, response);
-
 	}
 }

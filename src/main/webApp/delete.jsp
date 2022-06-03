@@ -52,6 +52,7 @@
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
 		<div class="container">
+			<a class="navbar-brand" href="#page-top">Email System</a>
 			<button
 				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
 				type="button" data-bs-toggle="collapse"
@@ -90,15 +91,8 @@
 			<!-- Contact Section Form-->
 			<div class="row justify-content-center">
 				<div class="col-lg-8 col-xl-7">
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- * * SB Forms Contact Form * *-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- This form is pre-integrated with SB Forms.-->
-					<!-- To make this form functional, sign up at-->
-					<!-- https://startbootstrap.com/solution/contact-forms-->
-					<!-- to get an API token!-->
 					<h1>Delete</h1>
-					<form method="post" action="sendbox">
+					<form method="post" action="Delete">
 						<div class="form-group form-button">
 							<input type="submit" name="signin" id="signin"
 								class="form-submit" value="Log in" />
@@ -115,6 +109,19 @@
 
 
 						<tr>
+							<td><c:forEach items="${s2}" var="item">
+									<li><c:out value="${item.tot}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s2}" var="item">
+									<li><c:out value="${item.subject}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s2}" var="item">
+									<li><c:out value="${item.message}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s2}" var="item">
+									<li><a >Delete NOW</a></li>
+								</c:forEach></td>
+							</td>
 						</tr>
 					</table>
 
