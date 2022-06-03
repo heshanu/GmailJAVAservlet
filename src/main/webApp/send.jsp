@@ -1,8 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.List" %>
-<%@page import="java.util.ArrayList" %>
-<%@tag import="com.dto.sendboxDTO"%>
-<%@tag import="com.service.sendService"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	if (session.getAttribute("name") == null) {
 	response.sendRedirect("login.jsp");
@@ -117,27 +113,21 @@
 							<td>MESSAGE</td>
 							<td>ACTION</td>
 						</tr>
-						<tr>
-							<td><%!
-							List<sendboxDTO> sends = sendService.getAllBanks();
-	// System.out.println(banks.size());
 
-	for(
-	sendboxDTO sendDTO:sends)
-	{
-		sendDTO.getTot();
-		sendDTO.getSubject();
-		sendDTO.getMessage();
-	}%></td>
-							<td></td>
-							<td></td>
+						<tr>
+							<td><c:forEach items="${s}" var="item">
+									<li><c:out value="${item.tot}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s}" var="item">
+									<li><c:out value="${item.subject}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s}" var="item">
+									<li><c:out value="${item.message}"/></li>
+								</c:forEach></td>
 							<td>
-								<form method="post" action="sendbox">
-									<div class="form-group form-button">
-										<input type="submit" name="signin" id="signin"
-											class="form-submit" value="delete" />
-									</div>
-								</form>
+							<c:forEach items="${s}" var="item">
+									<li><a href="./trash.jsp">Trash now</a></li>	
+								</c:forEach></td>
 							</td>
 						</tr>
 					</table>

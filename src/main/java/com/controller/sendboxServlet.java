@@ -54,23 +54,16 @@ public class sendboxServlet extends HttpServlet {
 			// sendService.getAllBanks();
 			List<sendboxDTO> sends = sendService.getAllBanks();
 			// System.out.println(banks.size());
-		
+
 			for (sendboxDTO sendDTO : sends) {
 				sendDTO.getTot();
 				sendDTO.getSubject();
 				sendDTO.getMessage();
-
-				// System.out.println(sendDTO.getTot());
-				// System.out.println(" ");
-				// System.out.println(sendDTO.getSubject());
-				// System.out.println(" ");
-				// System.out.println(sendDTO.getMessage());
-				// session.setAttribute("sendDTO", sendDTO);
+				
+				//session.setAttribute("tot", sendDTO.getTot());
+				System.out.println(sendDTO.getTot());
 				s.add(sendDTO);
-				session.setAttribute("s",s.add(sendDTO));
-				System.out.println(session.getAttribute(tot));
-				session.setAttribute("subject", sendDTO.getSubject());
-				session.setAttribute("message", sendDTO.getMessage());
+				session.setAttribute("s",s);
 			}
 			dispatcher = request.getRequestDispatcher("send.jsp");
 
