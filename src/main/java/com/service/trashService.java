@@ -7,28 +7,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dto.TrashDTO;
 import com.dto.sendboxDTO;
 import com.util.JDBCUtil;
 
 public class trashService {
-	public static List<sendboxDTO> getAllBanks() throws SQLException {
+	public static List<TrashDTO> getAllBanks() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preset = null;
 		ResultSet rs = null;
-		List<sendboxDTO> trashList = new ArrayList<sendboxDTO>();
+		List<TrashDTO> trashList = new ArrayList<TrashDTO>();
 		String selectSQL = "select * from trashtable ";
 		connection = JDBCUtil.getConnection();
 		preset = connection.prepareStatement(selectSQL);
 		rs = preset.executeQuery();
 
 		while (rs.next()) {
-			sendboxDTO send = new sendboxDTO();
-			send.setTot(rs.getString("tot"));
-			send.setSubject(rs.getString("subject"));
-			send.setMessage(rs.getString("message"));
-			trashList.add(send);
+			TrashDTO trash = new TrashDTO();
+			trash.setTot(rs.getString("tot"));
+			trash.setSubject(rs.getString("subject"));
+			trash.setMessage(rs.getString("message"));
+			trashList.add(trash);
 		}
 		return trashList;
 	}
-
 }

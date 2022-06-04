@@ -1,6 +1,9 @@
 package com.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JFrame;
 
+import com.dto.TrashDTO;
 import com.dto.sendboxDTO;
 import com.service.sendService;
 import com.service.trashService;
@@ -44,32 +48,32 @@ public class TrashServlet extends HttpServlet {
 		String tot1 = request.getParameter("tot");
 		String subject1 = request.getParameter("subject");
 		String message1 = request.getParameter("message");
-		RequestDispatcher dispatcher = null;
+		RequestDispatcher dispatcher1 = null;
 		HttpSession session1 = request.getSession();
 		JFrame parent = new JFrame();
-		List<sendboxDTO> s1 = new ArrayList<>();
+		List<TrashDTO> s1 = new ArrayList<>();
 		try {
 			// sendService.getAllBanks();
-			List<sendboxDTO> sends1 = trashService.getAllBanks();
+			List<TrashDTO> trash = trashService.getAllBanks();
 			// System.out.println(banks.size());
 
-			for (sendboxDTO sendDTO1 : sends1) {
-				sendDTO1.getTot();
-				sendDTO1.getSubject();
-				sendDTO1.getMessage();
+			for (TrashDTO trashdto : trash) {
+				trashdto.getTot();
+				trashdto.getSubject();
+				trashdto.getMessage();
 				// session.setAttribute("tot", sendDTO.getTot());
-				System.out.println(sendDTO1.getTot());
-				s1.add(sendDTO1);
+				// System.out.println(trashdto.getTot());
+				s1.add(trashdto);
 				session1.setAttribute("s1", s1);
+				System.out.println(trashdto.getMessage());
 			}
-			dispatcher = request.getRequestDispatcher("trash.jsp");
+			dispatcher1 = request.getRequestDispatcher("trash.jsp");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 
 		}
-		dispatcher.forward(request, response);
-
+		dispatcher1.forward(request, response);
 	}
 }

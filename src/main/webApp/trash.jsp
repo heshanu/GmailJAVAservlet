@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
@@ -45,6 +46,55 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<style type="text/css">
+* {
+	text-decoration: none;
+	list-style: none;
+}
+
+form {
+	font-size: 20px;
+}
+
+table {
+	font-size: 15px;
+}
+
+a:link {
+	color: red;
+}
+
+/* visited link */
+a:visited {
+	color: green;
+}
+
+/* mouse over link */
+a:hover {
+	color: hotpink;
+}
+
+/* selected link */
+a:active {
+	color: blue;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	text-decoration: underline;
+}
+</style>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -52,7 +102,7 @@
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
 		<div class="container">
-		<a class="navbar-brand" href="#page-top">Email System</a>
+			<a class="navbar-brand" href="#page-top">Email System</a>
 			<button
 				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
 				type="button" data-bs-toggle="collapse"
@@ -99,7 +149,6 @@
 						</div>
 					</form>
 
-
 					<table border="1" style="width: 100%">
 						<tr>
 							<td>TO</td>
@@ -119,7 +168,9 @@
 									<li><c:out value="${item1.message}" /></li>
 								</c:forEach></td>
 							<td><c:forEach items="${s1}" var="item1">
-									<li><a href="delete.jsp">delete now</a></li>
+									<form method="post" action="trash">
+										<input type="button" value="trash here">
+									</form>
 								</c:forEach></td>
 							</td>
 						</tr>

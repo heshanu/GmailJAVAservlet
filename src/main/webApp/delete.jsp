@@ -45,6 +45,55 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<style type="text/css">
+* {
+	text-decoration: none;
+	list-style: none;
+}
+
+form {
+	font-size: 20px;
+}
+
+table {
+	font-size: 15px;
+}
+
+a:link {
+	color: red;
+}
+
+/* visited link */
+a:visited {
+	color: green;
+}
+
+/* mouse over link */
+a:hover {
+	color: hotpink;
+}
+
+/* selected link */
+a:active {
+	color: blue;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	text-decoration: underline;
+}
+</style>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -119,7 +168,7 @@
 									<li><c:out value="${item.message}" /></li>
 								</c:forEach></td>
 							<td><c:forEach items="${s2}" var="item">
-									<li><a >Delete NOW</a></li>
+									<li><a>Delete NOW</a></li>
 								</c:forEach></td>
 							</td>
 						</tr>

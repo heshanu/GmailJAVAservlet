@@ -44,6 +44,61 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<style type="text/css">
+* {
+	text-decoration: none;
+	list-style: none;
+}
+
+.tbl td {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+a:link {
+	color: red;
+}
+
+/* visited link */
+a:visited {
+	color: green;
+}
+
+/* mouse over link */
+a:hover {
+	color: hotpink;
+}
+
+/* selected link */
+a:active {
+	color: blue;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	text-decoration: underline;
+}
+
+.tbl {
+	font-size: 15px;
+}
+
+.tbl td {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+</style>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -51,7 +106,7 @@
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
 		<div class="container">
-		<a class="navbar-brand" href="#page-top">Email System</a>
+			<a class="navbar-brand" href="#page-top">Email System</a>
 			<button
 				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
 				type="button" data-bs-toggle="collapse"
@@ -101,13 +156,13 @@
 					<form method="post" action="sendbox">
 						<div class="form-group form-button">
 							<input type="submit" name="signin" id="signin"
-								class="form-submit" value="show emails list" /><br>
+								class="form-submit fm1" value="show emails list" /><br>
 
 						</div>
 					</form>
 
 
-					<table border="1" style="width: 100%">
+					<table border="1" style="width: 100%" class="tbl">
 						<tr>
 							<td>TO</td>
 							<td>SUBJECT</td>
@@ -123,11 +178,12 @@
 									<li><c:out value="${item.subject}" /></li>
 								</c:forEach></td>
 							<td><c:forEach items="${s}" var="item">
-									<li><c:out value="${item.message}"/></li>
+									<li><c:out value="${item.message}" /></li>
 								</c:forEach></td>
-							<td>
-							<c:forEach items="${s}" var="item">
-									<li><a href="./trash.jsp">Trash now</a></li>	
+							<td><c:forEach items="${s}" var="item">
+									<form method="post" action="trash">
+										<input type="button" value="trash here">
+									</form>
 								</c:forEach></td>
 							</td>
 						</tr>
