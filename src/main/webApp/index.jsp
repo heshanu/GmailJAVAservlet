@@ -50,9 +50,13 @@
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="./delete.jsp">Delete</a></li>
 					<li class="nav-item mx-0 mx-lg-1 bg-danger"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded"><%=session.getAttribute("name")%></a></li>
-										<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="./logout">LogOut</a></li>
-										
+					<li class="nav-item mx-0 mx-lg-1"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded">
+							<form  action="logout" method="post">
+								<input type="submit" value="LogOut" />
+							</form></a></li>
+
 				</ul>
 			</div>
 		</div>

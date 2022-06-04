@@ -124,6 +124,13 @@ a:active {
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>
 					<li class="nav-item mx-0 mx-lg-1 bg-danger"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><%=session.getAttribute("name")%></a></li>
+					<li class="nav-item mx-0 mx-lg-1"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><a
+							class="nav-link py-3 px-0 px-lg-3 rounded">
+								<form action="logout" method="post">
+									<input type="submit" value="LogOut" />
+								</form>
+						</a></li>
 
 				</ul>
 			</div>
@@ -150,15 +157,14 @@ a:active {
 					</form>
 
 
-					<table border="1" style="width: 100%">
-						<th>
-						<td>Id</td>
-						<td>TO</td>
-						<td>SUBJECT</td>
-						<td>MESSAGE</td>
-						<td>ACTION</td>
-						</th>
-
+					<table border="2" style="width: 100%">
+						<tr>
+							<td>Id</td>
+							<td>TO</td>
+							<td>SUBJECT</td>
+							<td>MESSAGE</td>
+							<td>ACTION</td>
+						</tr>
 
 						<tr>
 							<td><c:forEach items="${s6}" var="item">
@@ -175,7 +181,6 @@ a:active {
 							<td><c:forEach items="${s6}" var="item">
 									<li><c:out value="${item.message}" /></li>
 								</c:forEach></td>
-
 
 							<td><c:forEach items="${s6}" var="item">
 									<form method="post" action="df">

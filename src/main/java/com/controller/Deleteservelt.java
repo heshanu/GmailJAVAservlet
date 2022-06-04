@@ -68,9 +68,10 @@ public class Deleteservelt extends HttpServlet {
 					DDTO.getMessage();
 
 					// session.setAttribute("tot", sendDTO.getTot());
-					System.out.println(DDTO.getTot());
+					//System.out.println(DDTO.getTot());
 					s6.add(DDTO);
 					session.setAttribute("s6", s6);
+					session.setAttribute("id", DDTO.getDeleteId());
 				}
 
 				dispatcher = request.getRequestDispatcher("delete.jsp");
