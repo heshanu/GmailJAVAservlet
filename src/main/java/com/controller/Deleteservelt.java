@@ -34,13 +34,11 @@ public class Deleteservelt extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session2 = request.getSession();
 		// TODO Auto-generated method stub
-		String tot = request.getParameter("tot");
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
 		RequestDispatcher dispatcher = null;
 		ResultSet rs = null;
-		HttpSession session = request.getSession();
+		
 		JFrame parent = new JFrame();
 		List<sendboxDTO> s = new ArrayList<>();
 		try {
@@ -48,16 +46,7 @@ public class Deleteservelt extends HttpServlet {
 			List<sendboxDTO> sends = sendService.getAllBanks();
 			// System.out.println(banks.size());
 
-			for (sendboxDTO sendDTO : sends) {
-				sendDTO.getTot();
-				sendDTO.getSubject();
-				sendDTO.getMessage();
-
-				// session.setAttribute("tot", sendDTO.getTot());
-				System.out.println(sendDTO.getTot());
-				s.add(sendDTO);
-				session.setAttribute("s2", s);
-			}
+			
 			dispatcher = request.getRequestDispatcher("delete.jsp");
 
 		} catch (Exception e) {

@@ -65,6 +65,8 @@ public class TrashServlet extends HttpServlet {
 				// System.out.println(trashdto.getTot());
 				s1.add(trashdto);
 				session1.setAttribute("s1", s1);
+
+				
 				System.out.println(trashdto.getMessage());
 			}
 			dispatcher1 = request.getRequestDispatcher("trash.jsp");

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
@@ -158,16 +159,16 @@ a:active {
 
 
 						<tr>
-							<td><c:forEach items="${s2}" var="item">
+							<td><c:forEach items="${s1}" var="item">
 									<li><c:out value="${item.tot}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s2}" var="item">
+							<td><c:forEach items="${s1}" var="item">
 									<li><c:out value="${item.subject}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s2}" var="item">
+							<td><c:forEach items="${s1}" var="item">
 									<li><c:out value="${item.message}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s2}" var="item">
+							<td><c:forEach items="${s1}" var="item">
 									<li><a>Delete NOW</a></li>
 								</c:forEach></td>
 							</td>
