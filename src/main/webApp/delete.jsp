@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
@@ -145,35 +145,47 @@ a:active {
 					<form method="post" action="Delete">
 						<div class="form-group form-button">
 							<input type="submit" name="signin" id="signin"
-								class="form-submit" value="Log in" />
+								class="form-submit" value="show table" />
 						</div>
 					</form>
 
 
 					<table border="1" style="width: 100%">
 						<th>
+						<td>Id</td>
 						<td>TO</td>
-						<td></td>SUBJECT
+						<td>SUBJECT</td>
 						<td>MESSAGE</td>
+						<td>ACTION</td>
 						</th>
 
 
 						<tr>
-							<td><c:forEach items="${s1}" var="item">
+							<td><c:forEach items="${s6}" var="item">
+									<li><c:out value="${item.deleteId}" /></li>
+								</c:forEach></td>
+							<td><c:forEach items="${s6}" var="item">
 									<li><c:out value="${item.tot}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s1}" var="item">
+
+							<td><c:forEach items="${s6}" var="item">
 									<li><c:out value="${item.subject}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s1}" var="item">
+
+							<td><c:forEach items="${s6}" var="item">
 									<li><c:out value="${item.message}" /></li>
 								</c:forEach></td>
-							<td><c:forEach items="${s1}" var="item">
-									<li><a>Delete NOW</a></li>
+
+
+							<td><c:forEach items="${s6}" var="item">
+									<form method="post" action="df">
+										<input type="button" value="deleteforever" type="submit">
+									</form>
 								</c:forEach></td>
-							</td>
 						</tr>
 					</table>
+
+
 
 
 

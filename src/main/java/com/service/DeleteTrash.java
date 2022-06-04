@@ -7,11 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.dto.DeleteDTO;
+import com.dto.TrashDTO;
 import com.dto.sendboxDTO;
 import com.util.JDBCUtil;
 
-public class DeleteService {
+public class DeleteTrash {
+
 	public static List<DeleteDTO> getAllBanks() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preset = null;

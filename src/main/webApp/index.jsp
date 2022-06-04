@@ -1,4 +1,6 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +49,10 @@
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="./delete.jsp">Delete</a></li>
 					<li class="nav-item mx-0 mx-lg-1 bg-danger"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><%=session.getAttribute("name")%></a></li>
+						class="nav-link py-3 px-0 px-lg-3 rounded"><%=session.getAttribute("name")%></a></li>
+										<li class="nav-item mx-0 mx-lg-1"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="./logout">LogOut</a></li>
+										
 				</ul>
 			</div>
 		</div>
@@ -101,14 +106,13 @@
 								name="message" placeholder="Enter your message here..."
 								style="height: 10rem"></textarea>
 							<label for="message">Message</label>
-							<div class="invalid-feedback" >A
-								message is required.</div>
+							<div class="invalid-feedback">A message is required.</div>
 						</div>
 						<!-- Submit success message-->
 						<!---->
 						<!-- This is what your users will see when the form-->
 						<!-- has successfully submitted-->
-						
+
 						<!-- Submit error message-->
 						<!---->
 						<!-- This is what your users will see when there is-->

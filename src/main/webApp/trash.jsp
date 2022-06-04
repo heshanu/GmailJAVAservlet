@@ -160,18 +160,22 @@ a:active {
 						<tr>
 							<td><c:forEach items="${s1}" var="item1">
 									<li><c:out value="${item1.tot}" /></li>
-								</c:forEach></td>
+								</c:forEach>
+							</td>
 							<td><c:forEach items="${s1}" var="item1">
 									<li><c:out value="${item1.subject}" /></li>
-								</c:forEach></td>
+								</c:forEach>
+							</td>
 							<td><c:forEach items="${s1}" var="item1">
 									<li><c:out value="${item1.message}" /></li>
-								</c:forEach></td>
+								</c:forEach>
+							</td>
 							<td><c:forEach items="${s1}" var="item1">
-									<form method="post" action="trash">
+									<form method="post" action="">
 										<input type="button" value="trash here">
 									</form>
-								</c:forEach></td>
+								</c:forEach>
+							</td>
 							</td>
 						</tr>
 					</table>

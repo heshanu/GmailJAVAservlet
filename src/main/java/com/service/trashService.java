@@ -17,7 +17,7 @@ public class trashService {
 		PreparedStatement preset = null;
 		ResultSet rs = null;
 		List<TrashDTO> trashList = new ArrayList<TrashDTO>();
-		String selectSQL = "select * from trashtable ";
+		String selectSQL = "select * from trash";
 		connection = JDBCUtil.getConnection();
 		preset = connection.prepareStatement(selectSQL);
 		rs = preset.executeQuery();
